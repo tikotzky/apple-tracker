@@ -1,0 +1,78 @@
+mixin option(selected, value)
+	option(value=value, selected=value===selected)
+		block
+
+mixin stockresult(instock)
+	if instock
+		td.yup ✔
+	else
+		td.nope ✘
+
+mixin storeresult(store)
+	td
+		a.store-link(href=store.href, target='_blank', data-store=store.json)= store.name
+
+doctype 5
+html(lang="en")
+	head
+		meta(charset="utf-8")
+		title= title
+		link(rel="stylesheet", href="/css/css.min.css")
+		meta(name='description', content='Easily search for an ' + share.prod + ' in your area. The quickest and easiest way to get an ' + share.prod + ' today. As seen on CNN, CNET, LA Times, Time, ZD Net, Gizmodo and more.')
+		meta(name='thumbnail', content='http://'+domain+'/img/iphone5s.jpg')
+		meta(property='og:image', content='http://'+domain+'/img/iphone5s.jpg')
+		meta(property='og:description', content='Easily search for an ' + share.prod + ' in your area. The quickest and easiest way to get an ' + share.prod + ' today. As seen on CNN, CNET, LA Times, Time, ZD Net, Gizmodo and more.')
+		meta(property='og:title', content='Find an ' + share.prod + ' available for pickup in-store in your area')
+	body
+		.navbar.navbar-default
+			.container
+				.navbar-header
+					h2 
+						a(class='muted', href=url) Apple-Tracker.com
+				.pull-right
+					include partials/social
+				#nav-items.pull-left
+					a.btn.btn-default.btn-xs(href='/') Home
+					a.btn.btn-default.btn-xs(href='/iphone-5s') iPhone 5S
+					a.btn.btn-default.btn-xs(href='/ipad-air') iPad Air
+					a.btn.btn-default.btn-xs(href='/ipad-mini-retina') iPad mini Retina
+		.container
+			.row
+				.col-xs-12
+					.top-ad
+						include partials/top-ad
+			.row
+				.col-xs-12
+					block h2
+			block allcontent
+				.row
+					.col-xs-9
+						block content
+					.col-xs-3
+						.right-ad
+							include partials/right-ad
+				.row
+					.col-sm-12
+						.top-ad(style="height:198px;")
+							script(src='http://ws-na.amazon-adsystem.com/widgets/q?rt=tf_sw&ServiceVersion=20070822&MarketPlace=US&ID=V20070822%2FUS%2Fappletrackerc-20%2F8002%2Fdc3d40b4-ff2e-44df-b57a-3462898855a6')
+							//-script amazon_ad_tag = "appletrackerc-20"; amazon_ad_width = "728"; amazon_ad_height = "90"
+							//-script(src='http://ir-na.amazon-adsystem.com/s/ads.js')
+		#footer
+			.container
+				p.text-muted.credit!= 'made with &hearts; by '
+					a(href='https://twitter.com/tikotzky', target='_blank') @tikotzky
+				p
+					a.twitter-follow.twitter-follow-button(href='https://twitter.com/tikotzky', data-show-count='false', data-size='large') Follow @tikotzky
+		script.
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-44531301-1', '#{domain}');
+			ga('send', 'pageview');
+		script(src="/bower_components/jquery/jquery.js")
+		script(src="/bower_components/bootstrap/js/tooltip.js")
+		script(src="/bower_components/bootstrap/js/popover.js")
+		script(src="/js/socialite.min.js")
+		script(src="/js/at.js")

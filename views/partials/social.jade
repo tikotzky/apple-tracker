@@ -1,0 +1,17 @@
+ul.social-buttons.cf
+  li
+      a.socialite.twitter-share(href='http://twitter.com/share', data-text='Find an '+share.prod+' available for pickup in store here', data-url=url, data-count='vertical', rel='nofollow', target='_blank')
+        span.vhidden Share on Twitter
+    li
+      a.socialite.googleplus-one(href='https://plus.google.com/share?url='+url, data-size='tall', data-href=url, rel='nofollow', target='_blank')
+        span.vhidden Share on Google+
+    li
+      a.socialite.facebook-like(href='http://www.facebook.com/sharer.php?u='+url+'&t=Find an '+share.prod+' available for pickup in store here', data-href=url, data-send='false', data-layout='box_count', data-width='60', data-show-faces='false', rel='nofollow', target='_blank')
+        span.vhidden Share on Facebook
+    li
+      a.socialite.linkedin-share(href='http://www.linkedin.com/shareArticle?mini=true&url='+url+'&title=Find an '+share.prod+' available for pickup in store here', data-url=url, data-counter='top', rel='nofollow', target='_blank')
+        span.vhidden Share on LinkedIn
+    li
+      script.
+        reddit_url='#{url}';reddit_newwindow='1';reddit_target='iphone';
+      script(type='text/javascript', src='http://www.reddit.com/static/button/button2.js')

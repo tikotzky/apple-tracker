@@ -1,0 +1,128 @@
+@import url(http://fonts.googleapis.com/css?family=Oxygen:300,700,400);
+@import "../../public/bower_components/bootstrap/less/bootstrap.less";
+
+body,h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{
+    font-family:Oxygen
+}
+
+.container {
+    min-width: 768px;
+    max-width: 1000px;
+}
+
+#nav-items {
+    clear: left;
+
+    a {
+        margin-right: 2px;
+    }
+}
+
+.highlight {
+    background: pink;
+}
+
+th {
+    text-align: center;
+}
+
+.yup {
+    text-align: center;
+    background-color: green;
+    color: white;
+}
+
+.nope {
+    text-align: center;
+    background-color: red;
+}
+
+.table-verycondensed thead > tr > th,
+.table-verycondensed tbody > tr > th,
+.table-verycondensed tfoot > tr > th,
+.table-verycondensed thead > tr > td,
+.table-verycondensed tbody > tr > td,
+.table-verycondensed tfoot > tr > td {
+  padding: 2px;
+}
+
+.store-link {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	max-width: 200px;
+	overflow: hidden;
+	display: block;
+}
+
+#as-seen {
+
+    text-align: center;
+    vertical-align: top;
+
+    a img {border: 1px solid white;}
+    a:hover img {
+        border: 1px solid gray;
+    }
+
+    ul {padding: 0}
+    li {
+        list-style: none;
+        padding-bottom: 10px;
+
+        img {
+            max-width: 100%;
+            height:auto;
+        }
+    }
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+    margin-top: 20px;
+    height: 60px;
+    background-color: #f5f5f5;
+
+    p {
+        float: left;
+    }
+}
+.credit {
+    margin: 20px 0;
+}
+
+.twitter-follow-button {
+    margin: 15px 10px 0;
+}
+
+.right-ad {
+    width: 160px;
+    height: 600px;
+}
+
+.top-ad {
+	margin: 0 auto;
+    width: 728px;
+    height: 90px;
+}
+
+.results-ad {
+    margin: 0 auto 15px;
+    width: 468px;
+    height: 60px;
+}
+
+/*
+ * Socialite Look-a-like defaults
+ */
+.vhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+
+.social-buttons { display: block; list-style: none; padding: 0; }
+.social-buttons > li { display: block; margin: 0; padding: 10px; float: left; }
+.social-buttons .socialite { display: block; position: relative; background: url('/img/social-sprite.png') 0 0 no-repeat; }
+.social-buttons .socialite-loaded { background: none !important; }
+
+.social-buttons .twitter-share { width: 55px; height: 65px; background-position: 0 0; }
+.social-buttons .googleplus-one { width: 50px; height: 65px; background-position: -75px 0; }
+.social-buttons .facebook-like { width: 50px; height: 65px; background-position: -145px 0; }
+.social-buttons .linkedin-share { width: 60px; height: 65px; background-position: -215px 0; }
+

@@ -1,0 +1,56 @@
+
+extends layout
+
+block h2
+	h2 Which device are you looking for?
+
+block content
+	.row
+		.col-xs-4
+			.panel.panel-default
+				.panel-heading.text-center
+					.panel-title iPhone 5s
+				.panel-body
+					a(href='/iphone-5s')
+						img.img-responsive(src="/img/models/iphone-5s.png")
+					a(href='/iphone-5s').btn.btn-primary.btn-block Select
+		.col-xs-4
+			.panel.panel-default
+				.panel-heading.text-center
+					.panel-title iPad Air
+				.panel-body
+					a(href='/ipad-air')
+						img.img-responsive(src="/img/models/ipad-air.png")
+					a(href='/ipad-air').btn.btn-primary.btn-block Select
+		.col-xs-4
+			.panel.panel-default
+				.panel-heading.text-center
+					.panel-title iPad mini Retina display
+				.panel-body
+					a(href='/ipad-mini-retina')
+						img.img-responsive(src="/img/models/ipad-mini-retina.png")
+					a(href='/ipad-mini-retina').btn.btn-primary.btn-block Select
+	.row
+		.col-xs-12
+			h3 Frequently asked questions
+			hr
+		.col-sm-11.col-sm-offset-1
+			p
+				h4 Where does Apple-Tracker.com get its info from?
+				|Apple-Tracker.com looks up the information on Apple.com for each product and reformats it to make it easier to read
+				hr
+
+			p
+				h4 How accurate is Apple-Tracker.com?
+				|The data is pulled live for each request so it's very accurate
+				hr
+
+			p
+				h4 When its green can I just go into a store and pick one up?
+				|You might be able to but we recommend ordering one online and selecting the option to pickup in-store
+				hr
+
+			p
+				h4 Whats going on? It shows green on Apple-Tracker.com but I don't see it on Apple.com
+				|Apple.com will sometimes server cached information to a visitor if they recently checked stock for a device. 
+				|You can try another browser or another computer and Apple.com should match what you see on Apple-Tracker.com

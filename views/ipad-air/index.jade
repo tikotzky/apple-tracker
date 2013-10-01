@@ -1,0 +1,70 @@
+extends ../layout
+
+block h2
+	h2 #{colorNice} "#{carrierNice}" #{share.prod} in #{zip}
+
+block content
+	.row
+		.col-xs-8
+			.row
+				.col-xs-12
+					form
+						.panel.panel-default
+							.panel-heading
+								h4.panel-title Select an #{share.prod}
+							.panel-body
+								.row
+									.col-xs-4
+										.form-group
+											label(for="color") Color:
+											select.form-control.input-sm(name="color")
+												+option(color, 'gray') Space Gray
+												+option(color, 'silver') Silver
+									.col-xs-4
+										.form-group
+											label(for="carrier") Carrier:
+											select.form-control.input-sm(name="carrier")
+												+option(carrier, 'wifi') Wifi only
+												+option(carrier, 'att') Wifi + AT&T
+												+option(carrier, 'verizon') Wifi + Verizon
+												+option(carrier, 'sprint') Wifi + Sprint
+												+option(carrier, 'tmobile') Wifi + T-Mobile
+									.col-xs-4
+										.form-group
+											label(for="zip") Zip Code:
+											input.form-control.input-sm(name="zip", type="text", pattern='\\d{5}' value=zip)
+								.row
+									.col-sm-8.col-sm-offset-2
+										button.btn.btn-primary.btn-block(type="submit") Find your #{share.prod}
+				.col-xs-12
+					if error
+						.alert.alert-danger There was an error retrieving your results.
+							br 
+							| Please try again soon.
+					else if errorMessage
+						.alert.alert-danger There was an error retrieving your results.
+							br 
+							strong #{errorMessage}
+					else
+						table.table.table-bordered.table-verycondensed.panel
+							tr
+								th(width='40%') Store Name
+								th(width='15%') 16GB
+								th(width='15%') 32GB
+								th(width='15%') 64GB
+								th(width='15%') 128GB
+							each store in stores
+								tr
+									+storeresult(store)
+									+stockresult(store['16'])
+									+stockresult(store['32'])
+									+stockresult(store['64'])
+									+stockresult(store['128'])
+			if foundDevice
+				.row
+					.col-xs-12
+						a.btn.btn-block.btn.btn-lg.btn-success(target='_blank', href=appleItemUrl) Click here to purchase your #{share.prod}
+		.col-xs-4
+			include ../partials/paypal
+			include ../partials/asseen
+	include ../partials/instructions
