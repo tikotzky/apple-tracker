@@ -1,5 +1,8 @@
 # Apple Tracker
 
+If you make a publicly accessible copy of this code please submit a pull request to list it in the README
+***
+
 ## Requirements
 * [Node.JS](http://nodejs.org/)
 
