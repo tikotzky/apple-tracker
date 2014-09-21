@@ -4,7 +4,7 @@ module.exports = {
 		'tmobile' : {
 			name: 'T-Mobile',
 			gold: {
-				'128': 'MG592LL/A'
+				'128': 'MG592LL/A',
 				'64': 'MG5D2LL/A',
 				'16': 'MG562LL/A',
 			},
