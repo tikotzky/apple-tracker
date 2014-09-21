@@ -1,4 +1,50 @@
 module.exports = {
+	
+	/*
+		From a model soughtModel like "MG4R2LL/A" returns a string like "iPhone 6 AT&T Gray 128".
+		Use it like: console.log("prettyName:" + models.prettyNameFromModel(iphone6['att']['gray']['128']))
+	*/
+	prettyNameFromModel: function(soughtModel) {
+		var traverse = function(obj, nameStack) {
+			if (nameStack == null)
+				nameStack = [];
+			//console.log('traversing obj:', obj);
+			var propertyNames = Object.getOwnPropertyNames(obj);
+			//console.log('found propertyNames:', propertyNames);
+			for (var idx = 0; idx < propertyNames.length; idx++) {
+				var propertyName = propertyNames[idx];
+				var propertyValue = obj[propertyName];
+				//console.log(propertyName, '->', propertyValue.toString() + ' (' + typeof propertyValue + ')');
+				
+				// use a pretty name if this object has it: 
+				var prettyName;
+				if (propertyValue != null && typeof propertyValue['name'] === 'string') {
+					prettyName = propertyValue['name'];
+				} else {
+					prettyName = propertyName.charAt(0).toUpperCase() + propertyName.substring(1);
+				}
+				nameStack.push(prettyName);
+
+				if (typeof propertyValue === 'string'){
+					if (propertyValue == soughtModel) {
+						return prettyNameFromStack(nameStack);
+					}
+				} else if (typeof propertyValue === 'object') {
+					var traverseResult = traverse(propertyValue, nameStack);
+					if (traverseResult != null)
+						return traverseResult;
+				}
+				nameStack.pop();
+			}
+			// if we got here the model wasn't found on this object:
+			return null;
+		};
+		var prettyNameFromStack = function(nameStack) {
+			return nameStack.join(' ');
+		}
+		return traverse(this);
+	},
+
 	'iphone-6': {
 		name: 'iPhone 6',
 		'tmobile' : {
